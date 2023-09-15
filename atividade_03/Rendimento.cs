@@ -113,7 +113,10 @@ public class Rendimento{
     public void exibeDados(){
         double rendTot = rendaTotal;
         double rendTotResgate = 0;
-        for(int i = 1; i < periodo+1; i++){
+        for(double i = 1; i < periodo+1; i++){
+            if(i>periodo){
+                i = periodo;
+            }
             double rendimento = jurComp(valor,juros,i);
             double valorRes = 0;
             if(i>valResgateMes && resgate){
