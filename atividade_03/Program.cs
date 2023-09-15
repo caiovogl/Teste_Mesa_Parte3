@@ -21,7 +21,7 @@ namespace exercicios{
                 Console.Write("Vai sacar? [S/N] ");
                 rendimento.decisao = Console.ReadLine();
                 if(rendimento.resgate){
-                    Console.Write("Quando vai sacar: ");
+                    Console.Write("Que periodo vai sacar: ");
                     rendimento.valResgateMes = Convert.ToInt64(Console.ReadLine());
                     Console.Write("Quanto vai sacar: R$");
                     rendimento.valResgate = Convert.ToDouble(Console.ReadLine());
