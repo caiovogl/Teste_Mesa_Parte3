@@ -111,6 +111,7 @@ public class Rendimento{
     }
 
     public void exibeDados(){
+        double valorInicial = this.valor;
         double rendTot = rendaTotal;
         double rendTotResgate = 0;
         for(double i = 1; i < periodo+1; i++){
@@ -133,9 +134,9 @@ public class Rendimento{
             Console.WriteLine($"mês {i} | rend.Total: {rendimento:C} | rend. líq.: {rendLiq:C} | resgate: {valorRes} | saldo: {saldo:C}");
         }
         if(!resgate){
-            Console.WriteLine($"Com {this.valor:C}, {this.juros:P} de juros em {periodo} meses, vai render {rendTot:C}.");
+            Console.WriteLine($"Com {valorInicial:C}, {this.juros:P} de juros em {periodo} meses, vai render {rendTot:C}.");
         }else{
-            Console.WriteLine($"Com {this.valor:C}, {this.juros:P} de juros em {periodo} meses, iria render {rendTot:C} sem saque no {valResgateMes}ºmês.");
+            Console.WriteLine($"Com {valorInicial:C}, {this.juros:P} de juros em {periodo} meses, iria render {rendTot:C} sem saque no {valResgateMes}ºmês.");
             Console.WriteLine($"Mas rendeu {rendTotResgate:C}");
         }
     }
