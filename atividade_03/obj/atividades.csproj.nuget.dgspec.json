@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\caiobueno\\Desktop\\Atividades\\atividade_03\\atividades.csproj": {}
+    "C:\\Users\\Caiovogl\\OneDrive\\Área de Trabalho\\Teste_Mesa_Parte3-main\\Teste_Mesa_Parte3-main\\atividade_03\\atividades.csproj": {}
   },
   "projects": {
-    "c:\\Users\\caiobueno\\Desktop\\Atividades\\atividade_03\\atividades.csproj": {
+    "C:\\Users\\Caiovogl\\OneDrive\\Área de Trabalho\\Teste_Mesa_Parte3-main\\Teste_Mesa_Parte3-main\\atividade_03\\atividades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\caiobueno\\Desktop\\Atividades\\atividade_03\\atividades.csproj",
+        "projectUniqueName": "C:\\Users\\Caiovogl\\OneDrive\\Área de Trabalho\\Teste_Mesa_Parte3-main\\Teste_Mesa_Parte3-main\\atividade_03\\atividades.csproj",
         "projectName": "atividades",
-        "projectPath": "c:\\Users\\caiobueno\\Desktop\\Atividades\\atividade_03\\atividades.csproj",
-        "packagesPath": "C:\\Users\\caiobueno\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\caiobueno\\Desktop\\Atividades\\atividade_03\\obj\\",
+        "projectPath": "C:\\Users\\Caiovogl\\OneDrive\\Área de Trabalho\\Teste_Mesa_Parte3-main\\Teste_Mesa_Parte3-main\\atividade_03\\atividades.csproj",
+        "packagesPath": "C:\\Users\\Caiovogl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Caiovogl\\OneDrive\\Área de Trabalho\\Teste_Mesa_Parte3-main\\Teste_Mesa_Parte3-main\\atividade_03\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\caiobueno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Caiovogl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
