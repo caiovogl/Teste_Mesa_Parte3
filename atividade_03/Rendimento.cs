@@ -3,18 +3,13 @@ using System.Reflection.Metadata.Ecma335;
 
 
 public class Rendimento{
-
-    public DateTime hoje = DateTime.Now;
-    public DateTime calcDate = DateTime.Now;
-
-    public double[] meses = {31,28,31,30,31,30,31,31,30,31,30,31};
-
     public Rendimento(){
         this.valor = 0;
         this.juros = 0;
+        this.periodo = 0;
         this.decisao = "N";
     }
-    
+
     private double val;
     public double valor
     {
@@ -42,7 +37,7 @@ public class Rendimento{
     }
     
     private double tempo;
-    public double periodoAno
+    public double periodo
     {
         get { return tempo; }
         set { 
@@ -50,32 +45,6 @@ public class Rendimento{
                 tempo = value; 
             }else{
                 tempo = 0;
-            }
-        }
-    }
-
-    private double altmes;
-    public double periodoMes
-    {
-        get { return altmes + periodoAno * 12; }
-        set { 
-            if(altmes>=0){
-                altmes = value; 
-            }else{
-                altmes = 0;
-            }
-        }
-    }
-
-    private double altdia;
-    public double periodoDia
-    {
-        get { return altdia; }
-        set { 
-            if(altdia>=0){
-                altdia = value; 
-            }else{
-                altdia = 0;
             }
         }
     }
@@ -137,38 +106,17 @@ public class Rendimento{
         return rend;
     }
 
+    public double rendaTotal{
+        get{ return jurComp(valor,juros,periodo);}
+    }
+
     public void exibeDados(){
         double valorInicial = this.valor;
-        double rendTot = 0;
+        double rendTot = rendaTotal;
         double rendTotResgate = 0;
-        double mesCalc = periodoMes;
-        double diasCalc = periodoDia;
-        bool diasNull = false;
-        if(periodoDia==0){
-            diasCalc++;
-            diasNull = true;
-        }
-        double i = 0;
-        while(diasCalc > 0){
-            if(calcDate.Year%4==0 ){
-                meses[1] = 29;
-            }else{meses[1] = 28;}
-            if(mesCalc>0){
-                calcDate = calcDate.AddMonths(1);
-                mesCalc--;
-                i++;
-            }else{
-                double distFimMes = meses[calcDate.Month-1] - calcDate.Day;
-                if(diasCalc>distFimMes){
-                    i+=distFimMes/meses[calcDate.Month-1];
-                    diasCalc-=distFimMes;
-                    calcDate = calcDate.AddDays(distFimMes+1);
-                    
-                }else{
-                    i+=diasCalc/meses[calcDate.Month-1];
-                    calcDate = calcDate.AddDays(diasCalc);
-                    diasCalc = 0;
-                } 
+        for(double i = 1; i < periodo+1; i++){
+            if(i>periodo){
+                i = periodo;
             }
             double rendimento = jurComp(valor,juros,i);
             double valorRes = 0;
@@ -183,14 +131,13 @@ public class Rendimento{
                 valorRes = valResgate;
                 saldo = valor;
             }
-            Console.WriteLine($"ano: {calcDate.Year} | mês: {calcDate.Month} | dia: {calcDate.Day} | rend.Total: {rendimento:C} | rend. líq.: {rendLiq:C} | resgate: {valorRes} | saldo: {saldo:C}");
-            rendTot = rendimento;
-            if(diasNull && mesCalc==0) diasCalc = 0;
+            Console.WriteLine($"mês {i} | rend.Total: {rendimento:C} | rend. líq.: {rendLiq:C} | resgate: {valorRes} | saldo: {saldo:C}");
         }
         if(!resgate){
-            Console.WriteLine($"Com {valorInicial:C}, {this.juros:P} de juros em {periodoMes} meses e {periodoDia} dias, vai render {rendTot:C}.");
+            Console.WriteLine($"Com {valorInicial:C}, {this.juros:P} de juros em {periodo} meses, vai render {rendTot:C}.");
         }else{
-            Console.WriteLine($"Com {valorInicial:C}, {this.juros:P} de juros em {periodoMes} meses e {periodoDia} dias, com saque no {valResgateMes}ºmês rendeu {rendTotResgate:C}");
+            Console.WriteLine($"Com {valorInicial:C}, {this.juros:P} de juros em {periodo} meses, iria render {rendTot:C} sem saque no {valResgateMes}ºmês.");
+            Console.WriteLine($"Mas rendeu {rendTotResgate:C}");
         }
     }
 
